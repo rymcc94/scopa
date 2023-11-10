@@ -238,6 +238,9 @@ namespace Scopa {
                     }
 
                     // match this face's texture name to a material
+					string textureName = face.TextureName.Substring(face.TextureName.LastIndexOf('/') + 1);
+					face.TextureName = textureName;
+					 
                     if ( !materialLookup.ContainsKey(face.TextureName) ) {
                         var newMaterial = defaultMaterial;
                         var materialOverride = config.GetMaterialOverrideFor(face.TextureName);

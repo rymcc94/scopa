@@ -435,6 +435,11 @@ namespace Scopa {
                 newMesh.RecalculateNormals();
                 newMesh.RecalculateBounds();
 
+				UnwrapParam.SetDefaults( out var unwrap);
+				unwrap.packMargin *= 2;
+				Unwrapping.GenerateSecondaryUVSet( newMesh, unwrap );
+				Debug.Log("lightmapped!");
+
                 faceVertexOffsets.Dispose();
                 faceTriIndexCounts.Dispose();
                 faceVertices.Dispose();
